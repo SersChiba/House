@@ -9,7 +9,6 @@ namespace HouseProject
     class Room : Location
     {
         private string decoration;
-        public string Decoration { get { return decoration; } }
         public Room(string name, string decoration) : base(name)
         {
             this.decoration = decoration;
@@ -18,36 +17,22 @@ namespace HouseProject
         {
             get
             {
-                return "You see the " + Decoration;
+                return "You see the " + decoration + ".";
             }
         }
     }
 
     class RoomWithDoor : Room, IHasExteriorDoor
     {
-        public RoomWithDoor(string name, string decoration) : base(name, decoration)
+
+        public RoomWithDoor(string name, string decoration, string doorDescription) : base(name, decoration)
         {
+            DoorDescription = doorDescription;
         }
 
-        public string DoorDescription
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
+        public string DoorDescription { get; private set; }
 
-        public Location DoorLocation
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
+        public Location DoorLocation { get; set; }
+        public override string Description { get { return base.Description + " You see " + DoorDescription + "."; } }
     }
 }

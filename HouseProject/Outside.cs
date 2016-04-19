@@ -26,29 +26,13 @@ namespace HouseProject
     }
     class OutsideWithDoor : Outside, IHasExteriorDoor
     {
-        public OutsideWithDoor(string name, bool hot) : base(name, hot)
+        public OutsideWithDoor(string name, bool hot, string doorDescription) : base(name, hot)
         {
+            DoorDescription = doorDescription;
         }
 
-        public string DoorDescription
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
+        public string DoorDescription { get; private set; }
 
-        public Location DoorLocation
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
+        public Location DoorLocation { get; set; }
     }
 }
