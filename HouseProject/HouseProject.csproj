@@ -53,7 +53,9 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="IHasExteriorDoor.cs" />
+    <Compile Include="IHidingPlace.cs" />
     <Compile Include="Location.cs" />
+    <Compile Include="Opponent.cs" />
     <Compile Include="Outside.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
