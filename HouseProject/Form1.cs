@@ -38,7 +38,7 @@ namespace HouseProject
         {
             if (displayMessage)
             {
-                MessageBox.Show("You found me in " + Moves + "moves!");
+                MessageBox.Show("You found me in " + Moves + " moves!");
                 IHidingPlace foundLocation = currentLocation as IHidingPlace;
                 description.Text = "You found your opponent in " + Moves + "moves! He was hiding in " + foundLocation.HidingPlaceName + ".";
             }
