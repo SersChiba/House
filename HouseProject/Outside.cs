@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HouseProject
 {
-    class Outside:Location
+    class Outside : Location
     {
         private bool hot;
         public bool Hot { get { return hot; } }
@@ -18,8 +18,8 @@ namespace HouseProject
         {
             get
             {
-                if(Hot)
-                return "It's very hot here.";
+                if (Hot)
+                    return "It's very hot here.";
                 return base.Description;
             }
         }
@@ -34,5 +34,15 @@ namespace HouseProject
         public string DoorDescription { get; private set; }
 
         public Location DoorLocation { get; set; }
+    }
+
+    class OutsideWithHidingPlace : Outside, IHidingPlace
+    {
+        public OutsideWithHidingPlace(string name, bool hot, string hidingPlace) : base(name, hot)
+        {
+            HidingPlaceName = hidingPlace;
+        }
+        public string HidingPlaceName { get; private set; }
+        public override string Description { get { return base.Description + " Someone could hide " + HidingPlaceName + "."; } }
     }
 }

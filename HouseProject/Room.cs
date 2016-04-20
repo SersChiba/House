@@ -22,10 +22,10 @@ namespace HouseProject
         }
     }
 
-    class RoomWithDoor : Room, IHasExteriorDoor
+    class RoomWithDoor : RoomWithHidingPlace, IHasExteriorDoor
     {
 
-        public RoomWithDoor(string name, string decoration, string doorDescription) : base(name, decoration)
+        public RoomWithDoor(string name, string decoration, string doorDescription, string hidingPlace) : base(name, decoration, hidingPlace)
         {
             DoorDescription = doorDescription;
         }
@@ -34,5 +34,15 @@ namespace HouseProject
 
         public Location DoorLocation { get; set; }
         public override string Description { get { return base.Description + " You see " + DoorDescription + "."; } }
+    }
+
+    class RoomWithHidingPlace : Room, IHidingPlace
+    {
+        public RoomWithHidingPlace(string name, string decoration, string hidingPlace) : base(name, decoration)
+        {
+            HidingPlaceName = hidingPlace;
+        }
+        public string HidingPlaceName { get; private set; }
+        public override string Description { get { return base.Description + " Someone could hide " + HidingPlaceName + "."; } }
     }
 }
