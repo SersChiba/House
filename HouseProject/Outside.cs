@@ -40,8 +40,9 @@ namespace HouseProject
     {
         public OutsideWithHidingPlace(string name, bool hot, string hidingPlace) : base(name, hot)
         {
-            HidingPlace = hidingPlace;
+            HidingPlaceName = hidingPlace;
         }
-        public string HidingPlace { get; }
+        public string HidingPlaceName { get; private set; }
+        public override string Description { get { return base.Description + " Someone could hide " + HidingPlaceName + "."; } }
     }
 }

@@ -8,6 +8,6 @@ namespace HouseProject
 {
     interface IHidingPlace
     {
-        string HidingPlace { get; }
+        string HidingPlaceName { get; }
     }
 }
